@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCountryDto } from './dto/create-country.dto';
 import { UpdateCountryDto } from './dto/update-country.dto';
-import { PaginationDto } from '@/common/dto/pagination.dto';
-import { getPagination } from '@/common/utils/pagination.utils';
+import { PaginationDto } from '@/shared/pagination/pagination.dto';
+import { getPagination } from '@/shared/pagination/pagination.utils';
 import { PrismaService } from '@/modules/prisma/prisma.service';
 
 @Injectable()

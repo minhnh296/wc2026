@@ -9,7 +9,7 @@ import type {
 } from 'class-validator';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@/modules/prisma/prisma.service';
-import { requestStorage } from '@/common/utils/request-storage';
+import { requestStorage } from '@/shared/utils/request-storage';
 
 interface IsUniqueConstraintInput {
   model: string;

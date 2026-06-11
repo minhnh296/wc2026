@@ -5,7 +5,7 @@ import { UpdateCountryDto } from './dto/update-country.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ApiCreatedResponseWrapper, ApiErrorResponseWrapper, ApiOkResponseWrapper } from '@/common/decorators/swagger.decorator';
 import { CountryEntity } from './entities/country.entity';
-import { PaginationDto } from '@/common/dto/pagination.dto';
+import { PaginationDto } from '@/shared/pagination/pagination.dto';
 
 @ApiTags("Country")
 @Controller('countries')

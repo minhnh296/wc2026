@@ -13,7 +13,7 @@ import { PlayersService } from './players.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdatePlayerDto } from './dto/update-player.dto';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { PaginationDto } from '@/common/dto/pagination.dto';
+import { PaginationDto } from '@/shared/pagination/pagination.dto';
 import { PlayerEntity } from './entities/player.entity';
 import { plainToInstance } from 'class-transformer';
 import {

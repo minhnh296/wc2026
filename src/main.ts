@@ -7,7 +7,7 @@ import { LoggingInterceptor } from '@/common/interceptors/logging.interceptor';
 import { ClassSerializerInterceptor, RequestMethod, ValidationPipe, VersioningType } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { useContainer } from 'class-validator';
-import { requestStorage } from '@/common/utils/request-storage';
+import { requestStorage } from '@/shared/utils/request-storage';
 import { join } from 'node:path';
 
 async function bootstrap() {

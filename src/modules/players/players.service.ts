@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdatePlayerDto } from './dto/update-player.dto';
 import { PrismaService } from '@/modules/prisma/prisma.service';
-import { PaginationDto } from '@/common/dto/pagination.dto';
-import { getPagination } from '@/common/utils/pagination.utils';
+import { PaginationDto } from '@/shared/pagination/pagination.dto';
+import { getPagination } from '@/shared/pagination/pagination.utils';
 
 @Injectable()
 export class PlayersService {
