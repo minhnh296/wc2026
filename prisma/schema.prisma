@@ -12,11 +12,14 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  username String
-  email    String
-  name     String
-  password String
+  id        String   @id @default(uuid())
+  username  String   @unique
+  email     String   @unique
+  name      String
+  password  String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Player {
@@ -56,7 +59,7 @@ model Position {
 
 model Country {
   id              Int       @id @default(autoincrement())
-  code            String
+  code            String    @unique
   name            String
   description     String
   players         Player[]

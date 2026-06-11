@@ -8,6 +8,8 @@ import {
   IsBoolean,
   IsArray,
   IsEnum,
+  MinLength,
+  Matches,
 } from 'class-validator';
 import { Transform, Type } from 'class-transformer';
 import type { ValidationOptions } from 'class-validator';
@@ -127,4 +129,24 @@ export function IsEnumField(
     message: `${label} không hợp lệ hoặc không nằm trong danh sách cho phép.`,
     ...validationOptions,
   });
+}
+
+// 10. Decorator kiểm tra mật khẩu mạnh (tối thiểu 8 ký tự, 1 hoa, 1 thường, 1 số, 1 ký tự đặc biệt)
+export function IsPasswordField(label = 'Mật khẩu', validationOptions?: ValidationOptions) {
+  return (target: object, propertyKey: string) => {
+    IsNotEmpty({
+      message: `${label} không được để trống.`,
+      ...validationOptions,
+    })(target, propertyKey);
+
+    MinLength(8, {
+      message: `${label} phải có tối thiểu 8 ký tự.`,
+      ...validationOptions,
+    })(target, propertyKey);
+
+    Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/, {
+      message: `${label} phải chứa ít nhất 1 chữ hoa, 1 chữ thường, 1 số và 1 ký tự đặc biệt.`,
+      ...validationOptions,
+    })(target, propertyKey);
+  };
 }
